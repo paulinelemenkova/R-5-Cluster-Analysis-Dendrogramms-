@@ -42,17 +42,6 @@ head(MDF)
 
 ############################## ДЕНДРОГРАММЫ, Иерархический кластерный анализ
 
-
-library(dendextend)
-# шаг-1. строим 1-ю дендрограмму (здесь: по 25 кластерам)
-dend <- MDF[1:25,] %>%  scale %>% dist %>% # calculate a distance matrix, 
-	hclust (method = "average") %>% 
-	as.dendrogram %>% 
-	set("labels_col","red") %>% set("labels_cex", c(.9,1.2)) %>%
-	set("branches_k_color", k=5) %>% set("branches_lwd", 1) %>% 	
-	set("leaves_pch", 19) %>% set("leaves_col", c("blue", "red")) 
-dend %>% plot(main = "Mariana Trench: \nCluster Analysis Dendrogramm-1 of the Bathymetric Profiles \nUnsorted Dendrogramm")
-
 library(dendextend)
 # шаг-1. строим 1-ю дендрограмму (здесь: по 25 кластерам)
 dend <- MDF[1:25,] %>%  scale %>% dist %>% # calculate a distance matrix, 
@@ -68,7 +57,7 @@ dend %>% plot(main = "Mariana Trench: \nCluster Analysis Dendrogramm-1 of the Ba
 #dend %>% rect.dendrogram(k = 4, border = 8, lty = 5, lwd = 2) %>% plot(horiz = TRUE, main = "Mariana Trench: \nCluster Analysis Dendrogramm-1 of the Bathymetric Profiles \nUnsorted Dendrogramm")
 
 
-# шаг-2. сортируем дендрограмму по величине кластеров, создаем из нее 2-ю
+# шаг-2. сортируем 1-ю дендрограмму по величине кластеров, создаем из нее 2-ю
 dend2 <- sort(dend)
 dend2 %>%  set("branches_k_color", k=3) %>% set("branches_lwd", 1) %>%    	
 	set("labels_col","blue") %>% set("labels_cex", c(.7)) %>%
