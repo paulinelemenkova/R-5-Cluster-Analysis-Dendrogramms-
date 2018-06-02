@@ -79,7 +79,7 @@ result <- pvclust(MDF, method.dist="cor", method.hclust="average", nboot=10)
 plot(result, main = "Mariana Trench Bathymetric Profiles 1-25: \nHierarchical Clustering with P-Values (AU/BP, %) \nvia Multiscale Bootstrap Resampling")
 pvrect(result)
 
-# pvclust and dendextend - результаты в виде отсортированной дендрограммы
+# шаг-5. pvclust and dendextend - результаты в виде отсортированной дендрограммы
 result %>% as.dendrogram %>% 
 	set("branches_k_color", k = 5, value = c("purple", "orange", "cyan1", "firebrick1", "springgreen")) %>%
  	plot(main = "Mariana Trench Bathymetric Profiles 1-25: Cluster Dendrogram\nwith AU/BP Values (%). nAU: Approximately Unbiased p-Value \n and BP: Bootstrap Probability")
